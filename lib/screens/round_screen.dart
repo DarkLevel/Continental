@@ -112,6 +112,7 @@ class _RoundScreenState extends State<RoundScreen> {
       '2 tríos + 1 escalera',
       '1 trío + 2 escaleras',
       '3 escaleras',
+      '2 tríos + 2 escaleras',
     ];
 
     return rounds[_currentRound - 1];
@@ -221,7 +222,7 @@ class _RoundScreenState extends State<RoundScreen> {
 
     _rounds.add(roundScores);
 
-    if (_currentRound == 7) {
+    if (_currentRound == 8) {
       await _saveFinishedGame();
 
       if (!mounted) {
@@ -607,7 +608,7 @@ class _RoundScreenState extends State<RoundScreen> {
                   child: FilledButton(
                     onPressed: _nextRound,
                     child: Text(
-                      _currentRound == 7
+                      _currentRound == 8
                           ? 'Finalizar partida'
                           : 'Confirmar resultado ronda',
                       style: const TextStyle(fontSize: 17),
@@ -759,7 +760,7 @@ class _RoundScreenState extends State<RoundScreen> {
         navigator.popUntil((route) => route.isFirst);
       },
       child: Scaffold(
-        appBar: AppBar(title: Text('Ronda $_currentRound de 7')),
+        appBar: AppBar(title: Text('Ronda $_currentRound de 8')),
         body: _gameFinished
             ? _buildFinalResult()
             : _winner == null
@@ -777,7 +778,7 @@ class _RoundScreenState extends State<RoundScreen> {
                           ),
                         ),
                         Text(
-                          'Ronda $_currentRound de 7',
+                          'Ronda $_currentRound de 8',
                           style: const TextStyle(
                             fontSize: 13,
                             color: Colors.grey,

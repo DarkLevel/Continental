@@ -11,6 +11,7 @@ enum CardValue {
   jack,
   queen,
   king,
+  joker,
 }
 
 extension CardValueExtension on CardValue {
@@ -40,6 +41,8 @@ extension CardValueExtension on CardValue {
         return 'Caballo';
       case CardValue.king:
         return 'Rey';
+      case CardValue.joker:
+        return 'Comodín';
     }
   }
 
@@ -67,6 +70,8 @@ extension CardValueExtension on CardValue {
       case CardValue.queen:
       case CardValue.king:
         return 10;
+      case CardValue.joker:
+        return 25;
     }
   }
 }
